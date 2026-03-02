@@ -1,0 +1,92 @@
+#!/bin/sh
+
+# Apache License 2.0
+# Copyright (c) 2025–present Raman Marozau, Work Target Insight Function.
+# Contact: raman@worktif.com
+#
+# This file is part of the stdio bus protocol reference implementation:
+#   stdio_bus_kernel_binary (target: <target_stdio_bus_kernel_binary>).
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+
+# stdio_bus launcher - auto-detects platform and runs correct binary
+# This script should be placed alongside platform directories:
+#   dist/
+#   ├── stdio_bus          (this script)
+#   ├── linux-amd64/stdio_bus
+#   ├── linux-arm64/stdio_bus
+#   ├── darwin-amd64/stdio_bus
+#   └── darwin-arm64/stdio_bus
+
+set -e
+
+# Get directory where this script is located
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+
+# Detect OS
+OS="$(uname -s)"
+case "$OS" in
+    Linux)  OS_NAME="linux" ;;
+    Darwin) OS_NAME="darwin" ;;
+    *)
+        echo "Error: Unsupported OS: $OS" >&2
+        exit 1
+        ;;
+esac
+
+# Detect architecture
+ARCH="$(uname -m)"
+case "$ARCH" in
+    x86_64|amd64)   ARCH_NAME="amd64" ;;
+    aarch64|arm64)  ARCH_NAME="arm64" ;;
+    armv7l|armv7)   ARCH_NAME="armv7" ;;
+    *)
+        echo "Error: Unsupported architecture: $ARCH" >&2
+        exit 1
+        ;;
+esac
+
+RELEASES_DIR=releases
+PLATFORM="${OS_NAME}-${ARCH_NAME}"
+LATEST_VERSION=$(ls -d "$SCRIPT_DIR"/v* 2>/dev/null | sort -V | tail -1 | xargs basename)
+BINARY="$SCRIPT_DIR/$LATEST_VERSION/$PLATFORM/stdio_bus"
+
+echo $BINARY
+
+# Check for musl variant on Linux (Alpine, etc.)
+if [ "$OS_NAME" = "linux" ] && [ -f "$SCRIPT_DIR/linux-musl-${ARCH_NAME}/stdio_bus" ]; then
+    # Detect if running on musl-based system
+    if ldd --version 2>&1 | grep -q musl; then
+        BINARY="$SCRIPT_DIR/linux-musl-${ARCH_NAME}/stdio_bus"
+        PLATFORM="linux-musl-${ARCH_NAME}"
+    fi
+fi
+
+# Verify binary exists
+if [ ! -f "$BINARY" ]; then
+    echo "Error: Binary not found for platform: $PLATFORM" >&2
+    echo "Expected: $BINARY" >&2
+    echo "" >&2
+    echo "Available platforms:" >&2
+    ls -d "$SCRIPT_DIR"/*/stdio_bus 2>/dev/null | sed 's|.*/\([^/]*\)/stdio_bus|\1|' | sed 's/^/  /' >&2
+    exit 1
+fi
+
+# Verify binary is executable
+if [ ! -x "$BINARY" ]; then
+    chmod +x "$BINARY"
+fi
+
+# Execute the platform-specific binary with all arguments
+exec "$BINARY" "$@"

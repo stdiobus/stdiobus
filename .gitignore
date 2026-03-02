@@ -1,0 +1,11 @@
+.idea
+.DS_Store
+node_modules
+_cache
+.kiro
+_sandbox
+docs/docs-internal
+worker/coverage-mcp-proxy
+*.d.ts
+*.d.ts.map
+*.js.map

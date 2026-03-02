@@ -1,0 +1,21 @@
+{
+  "pools": [
+    {
+      "id": "echo-worker",
+      "command": "/usr/bin/env",
+      "args": [
+        "node",
+        "./examples/echo-worker.js"
+      ],
+      "instances": 2
+    }
+  ],
+  "limits": {
+    "max_input_buffer": 1048576,
+    "max_output_queue": 4194304,
+    "max_restarts": 5,
+    "restart_window_sec": 60,
+    "drain_timeout_sec": 30,
+    "backpressure_timeout_sec": 60
+  }
+}
