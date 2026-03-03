@@ -31,7 +31,7 @@ See [Docker Hub](https://hub.docker.com/r/stdiobus/stdiobus) for complete usage 
 
 Worker implementations for stdio Bus kernel available in separate repository:
 
-**Repository**: [github.com/stdiobus/workers](https://github.com/stdiobus/workers)
+**Repository**: [github.com/stdiobus/workers-registry](https://github.com/stdiobus/workers-registry)
 
 **Available workers**:
 - `acp-worker` - Full ACP protocol implementation
@@ -40,7 +40,7 @@ Worker implementations for stdio Bus kernel available in separate repository:
 - `echo-worker` - Testing and reference implementation
 - `mcp-echo-server` - MCP server example
 
-See [Workers README](https://github.com/stdiobus/workers) for build instructions and usage examples.
+See [Workers README](https://github.com/stdiobus/workers-registry) for build instructions and usage examples.
 
 ### Prerequisites
 
