@@ -1,4 +1,4 @@
-# stdio Bus – Agent Transport OS kernel
+# stdio Bus – Agent Transport OS
 
 A deterministic C runtime providing transport-level routing for ACP/MCP-style agent protocols.
 
