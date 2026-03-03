@@ -25,7 +25,7 @@ docker pull stdiobus/stdiobus:latest
 
 **Available tags**: `latest`, `v2.0.3`, `main`, `develop`
 
-See [Docker Hub README](./_sandbox/DOCKER_HUB_README.md) for complete usage examples and configuration.
+See [Docker Hub](https://hub.docker.com/r/stdiobus/stdiobus) for complete usage examples and configuration.
 
 ## Workers
 
