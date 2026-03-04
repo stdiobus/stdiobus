@@ -20,9 +20,9 @@ Pre-compiled binaries for multiple platforms are available in the [`/releases`](
 ### Version 2.0.3
 
 **Available platforms**:
-- **macOS**: [`darwin-amd64`](./releases/v2.0.3/darwin-amd64/stdio_bus) | [`darwin-arm64`](./releases/v2.0.3/darwin-arm64/stdio_bus)
-- **Linux**: [`linux-amd64`](./releases/v2.0.3/linux-amd64/stdio_bus) | [`linux-arm64`](./releases/v2.0.3/linux-arm64/stdio_bus) | [`linux-armv7`](./releases/v2.0.3/linux-armv7/stdio_bus)
-- **Linux (musl)**: [`linux-musl-amd64`](./releases/v2.0.3/linux-musl-amd64/stdio_bus) | [`linux-musl-arm64`](./releases/v2.0.3/linux-musl-arm64/stdio_bus)
+- **macOS**: [`darwin-amd64`](./releases/v2.0.3/darwin-amd64) | [`darwin-arm64`](./releases/v2.0.3/darwin-arm64)
+- **Linux**: [`linux-amd64`](./releases/v2.0.3/linux-amd64) | [`linux-arm64`](./releases/v2.0.3/linux-arm64) | [`linux-armv7`](./releases/v2.0.3/linux-armv7)
+- **Linux (musl)**: [`linux-musl-amd64`](./releases/v2.0.3/linux-musl-amd64) | [`linux-musl-arm64`](./releases/v2.0.3/linux-musl-arm64)
 
 **Verification**: SHA256 checksums available at [`checksums.sha256`](./releases/v2.0.3/checksums.sha256)
 
