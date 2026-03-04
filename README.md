@@ -13,6 +13,27 @@ stdio Bus kernel acts as a process supervisor and message router between externa
 - **Session affinity**: Messages with the same `sessionId` route to the same worker
 - **Backpressure management**: Configurable limits prevent memory exhaustion
 
+## Binary Releases
+
+Pre-compiled binaries for multiple platforms are available in the [`/releases`](./releases) directory. Each version contains ready-to-use `stdio_bus` binaries for different architectures:
+
+### Version 2.0.3
+
+**Available platforms**:
+- **macOS**: [`darwin-amd64`](./releases/v2.0.3/darwin-amd64/stdio_bus) | [`darwin-arm64`](./releases/v2.0.3/darwin-arm64/stdio_bus)
+- **Linux**: [`linux-amd64`](./releases/v2.0.3/linux-amd64/stdio_bus) | [`linux-arm64`](./releases/v2.0.3/linux-arm64/stdio_bus) | [`linux-armv7`](./releases/v2.0.3/linux-armv7/stdio_bus)
+- **Linux (musl)**: [`linux-musl-amd64`](./releases/v2.0.3/linux-musl-amd64/stdio_bus) | [`linux-musl-arm64`](./releases/v2.0.3/linux-musl-arm64/stdio_bus)
+
+**Verification**: SHA256 checksums available at [`checksums.sha256`](./releases/v2.0.3/checksums.sha256)
+
+Download the appropriate binary for your platform and make it executable:
+```bash
+# Example for Linux AMD64
+curl -L -o stdio_bus https://github.com/stdiobus/stdiobus/releases/v2.0.3/linux-amd64/stdio_bus
+chmod +x stdio_bus
+```
+
+
 ## Docker
 
 Pre-built multi-architecture images available on Docker Hub:
@@ -26,6 +47,7 @@ docker pull stdiobus/stdiobus:latest
 **Available tags**: `latest`, `v2.0.3`, `main`, `develop`
 
 See [Docker Hub](https://hub.docker.com/r/stdiobus/stdiobus) for complete usage examples and configuration.
+
 
 ## Workers
 
