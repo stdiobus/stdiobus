@@ -62,11 +62,13 @@ See [Docker Hub](https://hub.docker.com/r/stdiobus/stdiobus) for complete usage 
 
 Embedded stdio_bus runtime for your application process — no external daemon, no Docker, no TCP hop.
 
-| Language | Package | Protocol |
-|----------|---------|----------|
-| Node.js | [`@stdiobus/node`](https://www.npmjs.com/package/@stdiobus/node) | N-API, in-process |
-
-Additional embedded runtimes are in development.
+| Language | Package | Status |
+|----------|---------|--------|
+| Node.js | [`@stdiobus/node`](https://www.npmjs.com/package/@stdiobus/node) | Available |
+| C++ | — | Planned |
+| Go | — | Planned |
+| Python | — | Planned |
+| Rust | — | Planned |
 
 
 ## Workers
