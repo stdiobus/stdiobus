@@ -2,6 +2,8 @@
 
 A deterministic C runtime providing transport-level routing for ACP/MCP-style agent protocols.
 
+[Website](https://stdiobus.com/) · [Workers](https://github.com/stdiobus/workers-registry) · [Docker Hub](https://hub.docker.com/r/stdiobus/stdiobus)
+
 stdio Bus kernel acts as a process supervisor and message router between external clients (IDEs, CLIs, services) and worker processes. It handles NDJSON-framed JSON-RPC messages with session-based routing, while remaining completely agnostic to protocol semantics.
 
 ## Key Features
@@ -12,6 +14,13 @@ stdio Bus kernel acts as a process supervisor and message router between externa
 - **Protocol agnostic**: Forwards messages unchanged, parsing only routing fields
 - **Session affinity**: Messages with the same `sessionId` route to the same worker
 - **Backpressure management**: Configurable limits prevent memory exhaustion
+
+## Prerequisites
+
+- C11-compliant compiler (GCC 4.9+ or Clang 3.4+)
+- Make or CMake 3.10+
+- Node.js 18+ (for running example workers)
+
 
 ## Binary Releases
 
@@ -49,26 +58,24 @@ docker pull stdiobus/stdiobus:latest
 See [Docker Hub](https://hub.docker.com/r/stdiobus/stdiobus) for complete usage examples and configuration.
 
 
+## Implementations
+
+Embedded stdio_bus runtime for your application process — no external daemon, no Docker, no TCP hop.
+
+| Language | Package | Protocol |
+|----------|---------|----------|
+| Node.js | [`@stdiobus/node`](https://www.npmjs.com/package/@stdiobus/node) | N-API, in-process |
+
+Additional embedded runtimes are in development.
+
+
 ## Workers
 
-Worker implementations for stdio Bus kernel available in separate repository:
+Worker implementations for stdio Bus kernel: [`@stdiobus/workers-registry`](https://github.com/stdiobus/workers-registry)
 
-**Repository**: [github.com/stdiobus/workers-registry](https://github.com/stdiobus/workers-registry)
+Includes full ACP protocol agent, ACP Registry launcher for routing to any registered agent (Claude, Goose, Cline, GitHub Copilot and others), OpenAI-compatible endpoint bridge, MCP-to-ACP proxy for IDE integration, and echo/test workers for protocol validation.
 
-**Available workers**:
-- `acp-worker` - Full ACP protocol implementation
-- `registry-launcher` - Routes to any agent in ACP Registry
-- `mcp-to-acp-proxy` - Bridges MCP clients to ACP agents
-- `echo-worker` - Testing and reference implementation
-- `mcp-echo-server` - MCP server example
-
-See [Workers README](https://github.com/stdiobus/workers-registry) for build instructions and usage examples.
-
-### Prerequisites
-
-- C11-compliant compiler (GCC 4.9+ or Clang 3.4+)
-- Make or CMake 3.10+
-- Node.js 18+ (for running example workers)
+See [workers-registry](https://github.com/stdiobus/workers-registry) for configuration and usage.
 
 
 ## License
