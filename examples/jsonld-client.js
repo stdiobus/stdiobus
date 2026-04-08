@@ -3,7 +3,7 @@
 /*
  * Apache License 2.0
  * Copyright (c) 2025–present Raman Marozau, Target Insight Function.
- * Contact: raman@worktif.com
+ * Contact: raman@stdiobus.com
  *
  * This file is part of the stdio bus protocol reference implementation:
  *   stdio_bus_kernel_binary (target: <target_stdio_bus_kernel_binary>).
@@ -142,9 +142,9 @@ Examples:
 function createConnection(options) {
   if (options.tcp) {
     const [host, port] = options.tcp.split(':');
-    return net.createConnection({host, port: parseInt(port)});
+    return net.createConnection({ host, port: parseInt(port) });
   } else if (options.unix) {
-    return net.createConnection({path: options.unix});
+    return net.createConnection({ path: options.unix });
   }
   throw new Error('Must specify --tcp or --unix');
 }
@@ -232,7 +232,7 @@ async function main() {
         params: {
           protocolVersion: 1,
           clientCapabilities: {},
-          clientInfo: {name: 'jsonld-client', version: '1.0.0'}
+          clientInfo: { name: 'jsonld-client', version: '1.0.0' }
         }
       });
       console.log(`← Response: ${JSON.stringify(initResponse)}`);

@@ -3,7 +3,7 @@
 /*
  * Apache License 2.0
  * Copyright (c) 2025–present Raman Marozau, Target Insight Function.
- * Contact: raman@worktif.com
+ * Contact: raman@stdiobus.com
  *
  * This file is part of the stdio bus protocol reference implementation:
  *   stdio_bus_kernel_binary (target: <target_stdio_bus_kernel_binary>).
@@ -284,10 +284,10 @@ function createConnection(options) {
       process.exit(1);
     }
     console.error(`Connecting to TCP ${host}:${port}...`);
-    return net.createConnection({host, port});
+    return net.createConnection({ host, port });
   } else if (options.unix) {
     console.error(`Connecting to Unix socket ${options.unix}...`);
-    return net.createConnection({path: options.unix});
+    return net.createConnection({ path: options.unix });
   } else {
     console.error('Error: Must specify --tcp or --unix');
     process.exit(1);

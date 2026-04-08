@@ -1,6 +1,6 @@
 # Apache License 2.0
 # Copyright (c) 2025–present Raman Marozau, Target Insight Function.
-# Contact: raman@worktif.com
+# Contact: raman@stdiobus.com
 #
 # This file is part of the stdio bus protocol reference implementation:
 #   stdio_bus_kernel_binary (target: <target_stdio_bus_kernel_binary>).

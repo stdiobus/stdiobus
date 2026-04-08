@@ -13,7 +13,7 @@
 
 Instead, please report them via:
 1. GitHub Security Advisory (preferred)
-2. Email to raman@worktif.com
+2. Email to raman@stdiobus.com
 
 ### What to Include
 
