@@ -1,4 +1,4 @@
-# stdio Bus – Agent Transport OS
+# stdio Bus – Agentic Orchestration Ecosystem
 
 A deterministic C runtime providing transport-level routing for ACP/MCP-style agent protocols.
 
