@@ -1,5 +1,7 @@
 # stdio Bus – Agentic Orchestration Ecosystem
 
+[![stdioBus](https://img.shields.io/badge/ecosystem-stdio%20Bus-ff4500?style=for-the-badge)](https://github.com/stdiobus)
+
 A deterministic C runtime providing transport-level routing for ACP/MCP-style agent protocols.
 
 [Website](https://stdiobus.com/) · [Workers](https://github.com/stdiobus/workers-registry) · [Docker Hub](https://hub.docker.com/r/stdiobus/stdiobus)
