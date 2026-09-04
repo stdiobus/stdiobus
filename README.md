@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-  A deterministic C runtime providing transport-level routing for ACP/MCP-style agent protocols.
+  stdio Bus kernel is a minimal, single-threaded C daemon that acts as a process supervisor and worker processes implementing agent logic.
 </p>
 
 <p align="center">
