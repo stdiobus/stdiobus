@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-  stdio Bus kernel is a minimal, single-threaded C daemon that acts as a process supervisor and worker processes implementing agent logic.
+  The kernel of stdio Bus is deliberately minimal: a single-threaded C daemon supervises the worker processes in which agent logic runs.
 </p>
 
 <p align="center">
